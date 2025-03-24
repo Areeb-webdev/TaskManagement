@@ -1,16 +1,16 @@
-const  express = require("express");
+import express from "express";
 const app = express();
 require("dotenv").config();
-require("./Models/db")
+import "./Models/db";
 const PORT  = process.env.PORT ;
-const  TaskRouter = require('./Routes/TaskRouter');
-const bodyParser = require("body-parser");
-const cors = require('cors');
+import TaskRouter from './Routes/TaskRouter';
+import { json } from "body-parser";
+import cors from 'cors';
 app.get("/",(req,res)=>{
 res.send("hello from server 8000");
 })
 app.use(cors());
-app.use(bodyParser.json());
+app.use(json());
 app.use("/tasks",TaskRouter)
 
 

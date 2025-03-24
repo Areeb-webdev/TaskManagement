@@ -1,4 +1,4 @@
-const TaskModel = require("../Models/TaskModel");
+import TaskModel, { find, findOneAndUpdate, findByIdAndDelete } from "../Models/TaskModel";
 
 const  createTask = async (req,res) => {
     const data = req.body ;
@@ -15,7 +15,7 @@ const model = new TaskModel(data);
 const  fetchAllTasks = async (req,res) => {
     
     try{
-const data = await TaskModel.find({});
+const data = await find({});
      
      res.status(201).json({message: 'All tasks' , success : true,data})
     }catch(err){
@@ -31,7 +31,7 @@ const updateTasksById = async (req, res) => {
         const body = req.body;
         const obj = { $set: { ...body } };
 
-        await TaskModel.findOneAndUpdate(
+        await findOneAndUpdate(
             { _id: id },  // Correct filter
             obj,
             { new: true }  // Returns the updated task
@@ -46,7 +46,7 @@ const  deleteTasksById = async (req,res) => {
     
     try{
         const id = req.params.id ;
-const deleteTask = await TaskModel.findByIdAndDelete(id);
+const deleteTask = await findByIdAndDelete(id);
      
      res.status(201).json({message: 'Task deleted' , success : true,deleteTask})
     }catch(err){
@@ -55,7 +55,7 @@ const deleteTask = await TaskModel.findByIdAndDelete(id);
     }
 
 }
-module.exports = {
+export default {
     createTask ,
     fetchAllTasks,
     updateTasksById,

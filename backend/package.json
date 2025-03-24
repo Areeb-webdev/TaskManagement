@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
-  "author": "",
-  "type": "commonjs",
+  "author": "M_Areeb",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"

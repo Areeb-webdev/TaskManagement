@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema ;
+import { Schema as _Schema, model } from "mongoose";
+const Schema = _Schema ;
 
 const TaskSchema = new Schema({
     taskName: {
@@ -11,5 +11,5 @@ const TaskSchema = new Schema({
          required: true 
     },
 });
-const TaskModel = mongoose.model('todos',TaskSchema);
-module.exports = TaskModel;   
+const TaskModel = model('todos',TaskSchema);
+export default TaskModel;   
