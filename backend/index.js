@@ -6,6 +6,13 @@ import TaskRouter from "./Routes/TaskRouter.js";
 import cors from "cors";
 
 const app = express();
+const corsOptions = {
+  origin: "https://task-management-ui-sable.vercel.app", // Your frontend URL
+  methods: "GET, POST, PUT, DELETE",
+  allowedHeaders: "Content-Type, Authorization"
+};
+
+app.use(cors(corsOptions));
 
 
 const PORT = process.env.PORT || 5000  
