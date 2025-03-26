@@ -1,15 +1,18 @@
-import { Schema as _Schema, model } from "mongoose";
-const Schema = _Schema ;
+import { Schema, model } from "mongoose";
 
 const TaskSchema = new Schema({
     taskName: {
         type: String,
-         required: true 
+        required: true,
+        
     },
     isDone: {
         type: Boolean,
-         required: true 
+        required: true,
+        default: false // Ensures it has a default value
     },
-});
-const TaskModel = model('todos',TaskSchema);
-export default TaskModel;   
+}) // Adds createdAt & updatedAt fields
+
+const TaskModel = model("todos", TaskSchema); // Use a more generic collection name
+
+export default TaskModel;

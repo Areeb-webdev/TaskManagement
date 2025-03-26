@@ -1,10 +1,11 @@
-const { createTask, fetchAllTasks, updateTasksById, deleteTasksById } = require("../Controllers/TaskController");
+import express from "express";
+import { createTask, fetchAllTasks, updateTasksById, deleteTasksById } from "../Controllers/TaskController.js";
 
-const router = require("express").Router();
+const router = express.Router();
 
-router.post('/',createTask)
-router.get('/', fetchAllTasks)
-router.put('/:id', updateTasksById)
-router.delete('/:id', deleteTasksById)
+router.post('/', createTask);
+router.get('/', fetchAllTasks);
+router.put('/:id', updateTasksById);
+router.delete('/:id', deleteTasksById);
 
-module.exports = router; 
+export default router; 
