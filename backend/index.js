@@ -11,6 +11,12 @@ connectDB();
 app.use(cors());
 app.use(express.json()); // Built-in JSON middleware
 app.use(express.urlencoded({ extended: false })); // Handle form data
+app.get("/tasks", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://task-managementui.vercel.app");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.json([{ id: 1, title: "Task 1" }]);
+});
 
 app.get("/", (req, res) => {
     res.send(`hello from server  ${PORT}`);
